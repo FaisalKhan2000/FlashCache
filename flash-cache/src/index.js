@@ -1,4 +1,4 @@
-function createCache() {
+export function createCache() {
   const cache = new Map();
 
   function set(key, value, ttl = null) {
@@ -7,8 +7,8 @@ function createCache() {
     cache.set(key, { value, expiry });
     if (ttl) {
       setTimeout(() => {
-        if (data.has(key) && data.get(key).expiry <= Date.now()) {
-          data.delete(key);
+        if (cache.has(key) && cache.get(key).expiry <= Date.now()) {
+          cache.delete(key);
         }
       }, ttl);
     }
@@ -19,7 +19,7 @@ function createCache() {
 
     if (!entry) return undefined;
 
-    if (entry.expiry && entry.expiry <= Date.now) {
+    if (entry.expiry && entry.expiry <= Date.now()) {
       cache.delete(key);
       return undefined;
     }
@@ -28,7 +28,7 @@ function createCache() {
   }
 
   function has(key) {
-    return cache.has(key) && this.get(key) !== undefined;
+    return cache.has(key) && get(key) !== undefined;
   }
 
   function deleteKey(key) {
