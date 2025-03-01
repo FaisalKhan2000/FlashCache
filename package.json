@@ -1,6 +1,6 @@
 {
   "name": "@flash0p/flashcache",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple in-memory cache implementation with TTL support.",
   "main": "src/index.js",
   "scripts": {
