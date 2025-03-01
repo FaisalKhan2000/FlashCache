@@ -9,7 +9,7 @@ flashcache is a simple and efficient in-memory caching solution for JavaScript a
 You can install flashcache via npm:
 
 ```
-npm install flash-cache
+npm i @flash0p/flashcache
 ```
 
 ## Usage
@@ -17,21 +17,21 @@ npm install flash-cache
 To use flashcache, first import the `createCache` function and then create a cache instance:
 
 ```javascript
-import createCache from 'flash-cache';
+import createCache from "flash-cache";
 
 const cache = createCache();
 
 // Set a value with an optional time-to-live (TTL)
-cache.set('key', 'value', 10000); // TTL of 10 seconds
+cache.set("key", "value", 10000); // TTL of 10 seconds
 
 // Get a value
-const value = cache.get('key');
+const value = cache.get("key");
 
 // Check if a key exists
-const exists = cache.has('key');
+const exists = cache.has("key");
 
 // Delete a key
-cache.delete('key');
+cache.delete("key");
 
 // Clear the cache
 cache.clear();
