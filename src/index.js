@@ -1,47 +1,8 @@
-export function createCache() {
-  const cache = new Map();
+import { createServer } from "./core/server.js";
+import { createMemoryStore } from "./storage/memory.js";
 
-  function set(key, value, ttl = null) {
-    const expiry = ttl ? Date.now() + ttl : null;
+// Export the server factory function as the main API
+export default createServer;
 
-    cache.set(key, { value, expiry });
-    if (ttl) {
-      setTimeout(() => {
-        if (cache.has(key) && cache.get(key).expiry <= Date.now()) {
-          cache.delete(key);
-        }
-      }, ttl);
-    }
-  }
-
-  function get(key) {
-    const entry = cache.get(key);
-
-    if (!entry) return undefined;
-
-    if (entry.expiry && entry.expiry <= Date.now()) {
-      cache.delete(key);
-      return undefined;
-    }
-
-    return entry.value;
-  }
-
-  function has(key) {
-    return cache.has(key) && get(key) !== undefined;
-  }
-
-  function deleteKey(key) {
-    return cache.delete(key);
-  }
-
-  function clear() {
-    cache.clear();
-  }
-
-  function size() {
-    return cache.size;
-  }
-
-  return { set, get, has, delete: deleteKey, clear, size };
-}
+// Also export the memory store directly for standalone use
+export { createMemoryStore };
