@@ -1,7 +1,7 @@
 /**
  * In-memory storage engine for FlashCache
  */
-export function createMemoryStore() {
+export function createCache() {
   const store = new Map();
   const expiryTimers = new Map();
 

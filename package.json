@@ -1,6 +1,6 @@
 {
-"name": "@flash0p/flashcache",
-  "version": "1.0.0",
+  "name": "@flash0p/flashcache",
+  "version": "1.0.1",
   "description": "A simple in-memory cache implementation with TTL support.",
   "main": "src/index.js",
   "scripts": {
@@ -23,5 +23,5 @@
     "type": "git",
     "url": "git+https://github.com/yourusername/flashcache.git"
   },
-"homepage": "https://github.com/yourusername/flashcache#readme"
+  "homepage": "https://github.com/yourusername/flashcache#readme"
 }

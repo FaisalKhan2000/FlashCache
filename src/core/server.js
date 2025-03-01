@@ -1,7 +1,7 @@
-import { createMemoryStore } from "../storage/memory.js";
+import { createCache } from "../storage/memory.js";
 
 export function createServer(config = {}) {
-  const store = createMemoryStore();
+  const store = createCache();
 
   return {
     /**

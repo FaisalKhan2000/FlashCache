@@ -1,12 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { createMemoryStore } from "../src/storage/memory.js";
+import { createCache } from "../src/storage/memory.js";
 
-describe("createMemoryStore", () => {
+describe("createCache", () => {
   let store;
 
   beforeEach(() => {
     // Create a fresh store before each test
-    store = createMemoryStore();
+    store = createCache();
 
     // Mock timers for testing expiry
     vi.useFakeTimers();
